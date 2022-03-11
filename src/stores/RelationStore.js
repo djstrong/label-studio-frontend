@@ -20,7 +20,7 @@ const Relation = types
     // labels
     relations: types.maybeNull(RelationsModel),
 
-    showMeta: types.optional(types.boolean, false),
+    showMeta: types.optional(types.boolean, true),
   })
   .views(self => ({
     get parent() {
@@ -125,7 +125,7 @@ const RelationStore = types
       const rl = Relation.create({ node1, node2 });
 
       // self.relations.unshift(rl);
-      self._relations.push(rl);
+      self._relations.unshift(rl);
 
       return rl;
     },
